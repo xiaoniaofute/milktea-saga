@@ -78,6 +78,16 @@ return n;
                  throw new RuntimeException("下架奶茶失败", e);
               }
             }
+    public int reduceStockWithConn(Connection conn, Long drinkId, int qty) throws SQLException {
+        String sql = "UPDATE drink SET stock = stock - ? WHERE id = ? AND stock >= ?";
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, qty);
+            ps.setLong(2, drinkId);
+            ps.setInt(3, qty);
+            return ps.executeUpdate();
+        }
+    }
+
              public List<Drink> listLowStock(int threshold) {
                   String sql = "SELECT id, name, category, price, stock, is_active "
                    + "FROM drink WHERE is_active = 1 AND stock < ? ORDER BY stock";
@@ -103,5 +113,4 @@ private Drink map(ResultSet rs) throws SQLException {  Drink d = new Drink();
         return d;
     }
              }
-
 

@@ -13,6 +13,13 @@ public class OrderItem {
 
     private String drinkName;
 
+    public OrderItem(Long drinkId, Integer quantity, BigDecimal unitPrice) {
+        this.drinkId = drinkId;
+        this.quantity = quantity;
+        this.unitPrice = unitPrice;
+        this.subtotal = unitPrice.multiply(BigDecimal.valueOf(quantity));
+    }
+
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
     public Long getOrderId() { return orderId; }

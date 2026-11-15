@@ -81,6 +81,22 @@ public class MemberDao {
         }
     }
 
+    public int addPointsWithConn(Connection conn, Long memberId, int delta) throws SQLException {
+        String update = "UPDATE member SET points = points + ? WHERE id = ?";
+        try (PreparedStatement ps = conn.prepareStatement(update)) {
+            ps.setInt(1, delta);
+            ps.setLong(2, memberId);
+            ps.executeUpdate();
+        }
+        String query = "SELECT points FROM member WHERE id = ?";
+        try (PreparedStatement ps = conn.prepareStatement(query)) {
+            ps.setLong(1, memberId);
+            try (ResultSet rs = ps.executeQuery()) {
+                return rs.next() ? rs.getInt("points") : 0;
+            }
+        }
+    }
+
      private Member map(ResultSet rs) throws SQLException {
         Member m = new Member();
         m.setId(rs.getLong("id"));
