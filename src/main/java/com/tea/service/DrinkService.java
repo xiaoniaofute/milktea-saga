@@ -32,3 +32,4 @@ public class DrinkService {
      public List<Drink> listLowStock() {
         return drinkDao.listLowStock(STOCK_WARN_THRESHOLD);
     }
+}

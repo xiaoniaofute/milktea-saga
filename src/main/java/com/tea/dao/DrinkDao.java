@@ -5,7 +5,6 @@ import com.tea.util.DbUtil;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
 public class DrinkDao {
      public List<Drink> listAllActive() {
       String sql = "SELECT id, name, category, price, stock, is_active "
