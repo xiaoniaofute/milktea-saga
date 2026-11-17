@@ -41,7 +41,7 @@ public class Drink {
 
      @Override
     public String toString() {
-        return String.format("[%d] %-12s ¥%-6s 库存 %d",
+        return String.format("[%d] %-12s ￥%-6s 库存 %d",
                 id, name, price.toPlainString(), stock);
     }
 

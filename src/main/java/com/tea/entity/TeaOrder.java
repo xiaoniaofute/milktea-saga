@@ -25,7 +25,7 @@ public class TeaOrder {
 
      @Override
     public String toString() {
-        return String.format("Order[%d] member=%s ¥%s %s",
+        return String.format("Order[%d] member=%s ￥%s %s",
                 id, memberId, totalAmount.toPlainString(), status);
     }
 }

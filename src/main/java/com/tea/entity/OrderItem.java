@@ -13,6 +13,9 @@ public class OrderItem {
 
     private String drinkName;
 
+    public OrderItem() {
+    }
+
     public OrderItem(Long drinkId, Integer quantity, BigDecimal unitPrice) {
         this.drinkId = drinkId;
         this.quantity = quantity;
@@ -37,7 +40,7 @@ public class OrderItem {
 
     @Override
     public String toString() {
-        return String.format("  %s × %d   ¥%s = ¥%s",
+        return String.format("  %s × %d   ￥%s = ￥%s",
                 drinkName != null ? drinkName : ("drink#" + drinkId),
                 quantity, unitPrice.toPlainString(), subtotal.toPlainString());
     }

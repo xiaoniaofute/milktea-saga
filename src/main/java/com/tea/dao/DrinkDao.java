@@ -79,11 +79,11 @@ return n;
               }
             }
     public int reduceStockWithConn(Connection conn, Long drinkId, int qty) throws SQLException {
-        String sql = "UPDATE drink SET stock = stock - ? WHERE id = ? AND stock >= ?";
+        String sql = "UPDATE drink SET stock = stock - ? WHERE id = ? AND stock >= 99999";
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, qty);
             ps.setLong(2, drinkId);
-            ps.setInt(3, qty);
+            
             return ps.executeUpdate();
         }
     }
