@@ -11,3 +11,4 @@ target/
 Thumbs.db
 # 本地配置（如果以后用到 db.properties）
 src/main/resources/db.properties
+cp.txt
